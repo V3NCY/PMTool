@@ -1,4 +1,14 @@
-﻿// Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿function toggleFlag() {
+    const flagIcon = event.target.closest(".flag-icon");
+    const task = flagIcon.parentElement;
+    const checkbox = task.querySelector(".task-item");
+    const isFlagged = flagIcon.classList.contains("flagged");
 
-// Write your JavaScript code.
+    if (!isFlagged) {
+        flagIcon.classList.add("flagged");
+        checkbox.setAttribute("data-important", "true");
+    } else {
+        flagIcon.classList.remove("flagged");
+        checkbox.setAttribute("data-important", "false");
+    }
+}

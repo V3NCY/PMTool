@@ -112,8 +112,7 @@ body {
     padding: 20px;
     font-family: 'DM Sans', sans-serif;
     font-size: 12px;
-    background-image: linear-gradient(21deg, rgba(64, 83, 206, 0.3697003234675773) 68%, rgba(255, 206, 196, 0.5) 163%),linear-gradient(163deg, rgba(49, 146, 170, 0.07944489965716128) 86%, rgba(239, 112, 138, 0.5) 40%),linear-gradient(30deg, rgba(76, 79, 173, 0.6173675716587805) 22%, rgba(237, 106, 134, 0.5) 169%),linear-gradient(48deg, rgba(31, 85, 147, 0.7323890641868473) 64%, rgba(247, 126, 132, 0.5) 43%);
-    background-blend-mode: overlay,multiply,color,normal;
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
 }
 
 ul {
@@ -149,21 +148,36 @@ button {
     padding: 40px;
 }
 
-.item {
-    @extend %flex;
+/* Define the default label style */
+.task {
+    display: flex;
+    align-items: center; /* Align elements vertically in the center */
     color: var(--main-color);
     margin-bottom: 14px;
     font-weight: 500;
-    svg
+}
 
-{
-    width: 14px;
-    height: 14px;
-    color: currentcolor;
+/* Adjust the spacing between elements */
+.task-item {
     margin-right: 10px;
 }
 
+.label-text {
+/*    margin-right: 10px;*/
 }
+
+.flag-icon {
+    cursor: pointer;
+    opacity: 0.2; /* Dimmed opacity when not flagged */
+    margin-right: 5px; /* Adjust the margin to control spacing with the label text */
+}
+
+    /* Add style for flagged state */
+    .flag-icon.flagged {
+        opacity: 1; /* Full opacity when flagged */
+    }
+
+
 
 .category-list {
     margin-top: 50px;
@@ -262,7 +276,7 @@ button {
 
 .time {
     margin-bottom: 6px;
-    opacity: 0.4;
+    opacity: 0.7;
     font-size: 10px;
 }
 
@@ -322,12 +336,12 @@ button {
     flex: 1;
     width: 100%;
     padding: 40px 20px 0 20px;
-    .header
-
-{
+    
+ 
+ .header {
     font-size: 26px;
     color: var(--main-color);
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 }
@@ -375,17 +389,17 @@ button {
 
 .task {
     display: flex;
-    justify-content: space-between;
+    justify-content: initial;
     position: relative;
     margin-bottom: 16px;
     padding-left: 30px;
     color: var(--task-color);
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 500;
     &:hover
 
 {
-    transform: translatex(2px);
+    transform: translatex(5px);
 }
 
 label {
@@ -403,7 +417,7 @@ label .label-text {
         position: absolute;
         width: 14px;
         height: 14px;
-        border: 1px solid #ddd;
+        border: 2px solid #ddd;
         border-radius: 2px;
         left: -24px;
         transition: .2s ease;
@@ -422,6 +436,7 @@ label .label-text {
 .tag {
     font-size: 10px;
     padding: 4px 8px;
+    height: 100%;
     border-radius: 20px;
     &.approved
 
